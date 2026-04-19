@@ -37,7 +37,7 @@ function setPanelView(viewName) {
   });
 }
 
-function buildTargetUrl(rawQuery) {
+function normalizeDestination(rawQuery) {
   const query = rawQuery.trim();
 
   if (/^https?:\/\//i.test(query)) {
@@ -48,7 +48,29 @@ function buildTargetUrl(rawQuery) {
     return `https://${query}`;
   }
 
-  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  return `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+}
+
+function buildProxiedUrl(destinationUrl) {
+  const uvConfig = window.__uv$config;
+  if (uvConfig?.prefix && typeof uvConfig.encodeUrl === 'function') {
+    return `${uvConfig.prefix}${uvConfig.encodeUrl(destinationUrl)}`;
+  }
+
+  const scramjetConfig = window.__scramjet$config || window.__scramjet?.config;
+  if (scramjetConfig?.prefix) {
+    if (typeof scramjetConfig.encodeUrl === 'function') {
+      return `${scramjetConfig.prefix}${scramjetConfig.encodeUrl(destinationUrl)}`;
+    }
+
+    if (typeof scramjetConfig.codec?.encode === 'function') {
+      return `${scramjetConfig.prefix}${scramjetConfig.codec.encode(destinationUrl)}`;
+    }
+
+    return `${scramjetConfig.prefix}${encodeURIComponent(destinationUrl)}`;
+  }
+
+  return `/service/${encodeURIComponent(destinationUrl)}`;
 }
 
 function runSearch() {
@@ -62,7 +84,8 @@ function runSearch() {
     return;
   }
 
-  const targetUrl = buildTargetUrl(query);
+  const destinationUrl = normalizeDestination(query);
+  const targetUrl = buildProxiedUrl(destinationUrl);
   body.classList.remove('sections-open');
   body.classList.add('search-transition');
   syncPanelState();
