@@ -9,39 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="site-ready dock-visible">
+<body class="site-ready is-loading">
   <div class="streaks" aria-hidden="true"></div>
 
-  <header class="top-bar">
-    <div class="brand-wrap">
-      <span class="brand-glow"></span>
+  <section class="entry-loader" id="entryLoader" aria-label="Loading Mistaken">
+    <div class="loader-streaks" aria-hidden="true"></div>
+    <div class="loader-core" aria-live="polite">
       <h1>Mistaken</h1>
+      <div class="loader-line">
+        <span></span>
+      </div>
+      <p>Launching interface</p>
     </div>
-    <a class="loader-link" href="animation.html" aria-label="Replay loading animation">
-      <i data-lucide="sparkles"></i>
-    </a>
-  </header>
+  </section>
 
-  <main class="content-shell">
-    <section class="hero-card">
-      <h2>Modern Proxy Interface</h2>
-      <p>Sharp, fast, and built to expand.</p>
-    </section>
-
-    <section class="quick-grid" aria-label="Coming sections">
-      <article class="quick-item">
-        <i data-lucide="gamepad-2"></i>
-        <h3>Games</h3>
-      </article>
-      <article class="quick-item">
-        <i data-lucide="blocks"></i>
-        <h3>Apps</h3>
-      </article>
-      <article class="quick-item">
-        <i data-lucide="settings"></i>
-        <h3>Settings</h3>
-      </article>
-    </section>
+  <main class="hero-layout" aria-label="Mistaken hero">
+    <p class="hero-kicker">Modern Proxy Interface</p>
+    <h1 class="hero-title">Mistaken</h1>
+    <p class="hero-subtitle">Sharp, fast, and built to expand.</p>
   </main>
 
   <button class="dock-toggle" id="dockToggle" aria-label="Toggle search dock" aria-expanded="true">

@@ -1,4 +1,5 @@
 const body = document.body;
+const entryLoader = document.getElementById('entryLoader');
 const dockToggle = document.getElementById('dockToggle');
 const sectionsToggle = document.getElementById('sectionsToggle');
 const sectionsPanel = document.getElementById('sectionsPanel');
@@ -6,11 +7,17 @@ const tabButtons = Array.from(document.querySelectorAll('.panel-tab'));
 const views = Array.from(document.querySelectorAll('.panel-view'));
 
 function syncDockState() {
+  if (!dockToggle) {
+    return;
+  }
   const visible = !body.classList.contains('dock-hidden');
   dockToggle.setAttribute('aria-expanded', String(visible));
 }
 
 function syncPanelState() {
+  if (!sectionsToggle || !sectionsPanel) {
+    return;
+  }
   const open = body.classList.contains('sections-open');
   sectionsToggle.setAttribute('aria-expanded', String(open));
   sectionsPanel.setAttribute('aria-hidden', String(!open));
@@ -28,23 +35,27 @@ function setPanelView(viewName) {
   });
 }
 
-dockToggle.addEventListener('click', () => {
-  body.classList.toggle('dock-hidden');
-  if (body.classList.contains('dock-hidden')) {
-    body.classList.remove('sections-open');
-  }
-  syncDockState();
-  syncPanelState();
-});
-
-sectionsToggle.addEventListener('click', () => {
-  if (body.classList.contains('dock-hidden')) {
-    body.classList.remove('dock-hidden');
+if (dockToggle) {
+  dockToggle.addEventListener('click', () => {
+    body.classList.toggle('dock-hidden');
+    if (body.classList.contains('dock-hidden')) {
+      body.classList.remove('sections-open');
+    }
     syncDockState();
-  }
-  body.classList.toggle('sections-open');
-  syncPanelState();
-});
+    syncPanelState();
+  });
+}
+
+if (sectionsToggle) {
+  sectionsToggle.addEventListener('click', () => {
+    if (body.classList.contains('dock-hidden')) {
+      body.classList.remove('dock-hidden');
+      syncDockState();
+    }
+    body.classList.toggle('sections-open');
+    syncPanelState();
+  });
+}
 
 tabButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -60,6 +71,9 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('click', (event) => {
+  if (!sectionsPanel || !sectionsToggle) {
+    return;
+  }
   const target = event.target;
   if (!(target instanceof Element)) {
     return;
@@ -76,6 +90,13 @@ document.addEventListener('click', (event) => {
 
 if (window.lucide) {
   window.lucide.createIcons();
+}
+
+if (entryLoader) {
+  window.setTimeout(() => {
+    body.classList.remove('is-loading');
+    body.classList.add('site-loaded');
+  }, 2200);
 }
 
 syncDockState();
