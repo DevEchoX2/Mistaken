@@ -52,10 +52,27 @@ function normalizeDestination(rawQuery) {
 }
 
 function buildProxiedUrl(destinationUrl) {
-  return `/service/${encodeURIComponent(destinationUrl)}`;
+  return `service/${encodeURIComponent(destinationUrl)}`;
 }
 
-function runSearch() {
+async function hasActiveServiceWorker() {
+  if (!('serviceWorker' in navigator)) {
+    return false;
+  }
+
+  if (navigator.serviceWorker.controller) {
+    return true;
+  }
+
+  try {
+    const registration = await navigator.serviceWorker.getRegistration();
+    return Boolean(registration?.active);
+  } catch {
+    return false;
+  }
+}
+
+async function runSearch() {
   if (!searchInput) {
     return;
   }
@@ -67,7 +84,8 @@ function runSearch() {
   }
 
   const destinationUrl = normalizeDestination(query);
-  const targetUrl = buildProxiedUrl(destinationUrl);
+  const useProxyRoute = await hasActiveServiceWorker();
+  const targetUrl = useProxyRoute ? buildProxiedUrl(destinationUrl) : destinationUrl;
   body.classList.remove('sections-open');
   body.classList.add('search-transition');
   syncPanelState();
