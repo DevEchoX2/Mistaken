@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mistaken</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="site-ready dock-visible">
+  <div class="streaks" aria-hidden="true"></div>
+
+  <header class="top-bar">
+    <div class="brand-wrap">
+      <span class="brand-glow"></span>
+      <h1>Mistaken</h1>
+    </div>
+    <a class="loader-link" href="animation.html" aria-label="Replay loading animation">
+      <i data-lucide="sparkles"></i>
+    </a>
+  </header>
+
+  <main class="content-shell">
+    <section class="hero-card">
+      <h2>Modern Proxy Interface</h2>
+      <p>Sharp, fast, and built to expand.</p>
+    </section>
+
+    <section class="quick-grid" aria-label="Coming sections">
+      <article class="quick-item">
+        <i data-lucide="gamepad-2"></i>
+        <h3>Games</h3>
+      </article>
+      <article class="quick-item">
+        <i data-lucide="blocks"></i>
+        <h3>Apps</h3>
+      </article>
+      <article class="quick-item">
+        <i data-lucide="settings"></i>
+        <h3>Settings</h3>
+      </article>
+    </section>
+  </main>
+
+  <button class="dock-toggle" id="dockToggle" aria-label="Toggle search dock" aria-expanded="true">
+    <i data-lucide="chevron-up"></i>
+  </button>
+
+  <section class="search-dock" id="searchDock" aria-label="Search controls">
+    <div class="dock-inner">
+      <button class="dock-icon" id="sectionsToggle" aria-label="Open sections" aria-expanded="false">
+        <i data-lucide="layout-grid"></i>
+      </button>
+      <label class="search-wrap" for="proxySearch">
+        <i data-lucide="search"></i>
+        <input id="proxySearch" type="text" placeholder="Search the web..." autocomplete="off">
+      </label>
+      <button class="dock-icon" aria-label="Run search">
+        <i data-lucide="arrow-up-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="sections-panel" id="sectionsPanel" aria-label="Sections" aria-hidden="true">
+    <div class="panel-tabs" role="tablist" aria-label="Section tabs">
+      <button class="panel-tab active" data-panel="games" role="tab" aria-selected="true">Games</button>
+      <button class="panel-tab" data-panel="apps" role="tab" aria-selected="false">Apps</button>
+      <button class="panel-tab" data-panel="settings" role="tab" aria-selected="false">Settings</button>
+    </div>
+    <div class="panel-body">
+      <div class="panel-view active" data-view="games">
+        <h4>Games</h4>
+        <p>Section shell ready.</p>
+      </div>
+      <div class="panel-view" data-view="apps">
+        <h4>Apps</h4>
+        <p>Section shell ready.</p>
+      </div>
+      <div class="panel-view" data-view="settings">
+        <h4>Settings</h4>
+        <p>Section shell ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
