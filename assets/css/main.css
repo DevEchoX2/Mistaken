@@ -198,6 +198,7 @@ h4 {
   border-radius: 14px;
   background: rgba(7, 7, 7, 0.96);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 230ms ease, transform 230ms ease;
   overflow: hidden;
@@ -205,6 +206,7 @@ h4 {
 
 .sections-open .sections-panel {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
@@ -292,8 +294,7 @@ h4 {
 
 .site-loaded .hero-layout,
 .site-loaded .search-dock,
-.site-loaded .dock-toggle,
-.site-loaded .sections-panel {
+.site-loaded .dock-toggle {
   opacity: 1;
 }
 
