@@ -52,24 +52,6 @@ function normalizeDestination(rawQuery) {
 }
 
 function buildProxiedUrl(destinationUrl) {
-  const uvConfig = window.__uv$config;
-  if (uvConfig?.prefix && typeof uvConfig.encodeUrl === 'function') {
-    return `${uvConfig.prefix}${uvConfig.encodeUrl(destinationUrl)}`;
-  }
-
-  const scramjetConfig = window.__scramjet$config || window.__scramjet?.config;
-  if (scramjetConfig?.prefix) {
-    if (typeof scramjetConfig.encodeUrl === 'function') {
-      return `${scramjetConfig.prefix}${scramjetConfig.encodeUrl(destinationUrl)}`;
-    }
-
-    if (typeof scramjetConfig.codec?.encode === 'function') {
-      return `${scramjetConfig.prefix}${scramjetConfig.codec.encode(destinationUrl)}`;
-    }
-
-    return `${scramjetConfig.prefix}${encodeURIComponent(destinationUrl)}`;
-  }
-
   return `/service/${encodeURIComponent(destinationUrl)}`;
 }
 
