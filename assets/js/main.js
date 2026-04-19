@@ -3,6 +3,8 @@ const entryLoader = document.getElementById('entryLoader');
 const dockToggle = document.getElementById('dockToggle');
 const sectionsToggle = document.getElementById('sectionsToggle');
 const sectionsPanel = document.getElementById('sectionsPanel');
+const searchInput = document.getElementById('proxySearch');
+const searchSubmit = document.getElementById('searchSubmit');
 const tabButtons = Array.from(document.querySelectorAll('.panel-tab'));
 const views = Array.from(document.querySelectorAll('.panel-view'));
 
@@ -35,6 +37,41 @@ function setPanelView(viewName) {
   });
 }
 
+function buildTargetUrl(rawQuery) {
+  const query = rawQuery.trim();
+
+  if (/^https?:\/\//i.test(query)) {
+    return query;
+  }
+
+  if (/^[a-z0-9-]+(\.[a-z0-9-]+)+([/?#].*)?$/i.test(query)) {
+    return `https://${query}`;
+  }
+
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
+function runSearch() {
+  if (!searchInput) {
+    return;
+  }
+
+  const query = searchInput.value.trim();
+  if (!query) {
+    searchInput.focus();
+    return;
+  }
+
+  const targetUrl = buildTargetUrl(query);
+  body.classList.remove('sections-open');
+  body.classList.add('search-transition');
+  syncPanelState();
+
+  window.setTimeout(() => {
+    window.location.href = targetUrl;
+  }, 950);
+}
+
 if (dockToggle) {
   dockToggle.addEventListener('click', () => {
     body.classList.toggle('dock-hidden');
@@ -54,6 +91,19 @@ if (sectionsToggle) {
     }
     body.classList.toggle('sections-open');
     syncPanelState();
+  });
+}
+
+if (searchSubmit) {
+  searchSubmit.addEventListener('click', runSearch);
+}
+
+if (searchInput) {
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runSearch();
+    }
   });
 }
 

@@ -285,6 +285,18 @@ h4 {
   pointer-events: none;
 }
 
+.search-transition .entry-loader {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.search-transition .search-dock,
+.search-transition .dock-toggle {
+  opacity: 1;
+  z-index: 7;
+}
+
 .is-loading .hero-layout,
 .is-loading .search-dock,
 .is-loading .dock-toggle,
