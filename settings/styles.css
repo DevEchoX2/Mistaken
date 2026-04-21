@@ -1,4 +1,15 @@
 :root {
+  --bg: #050505;
+  --bg-soft: #0d0d0d;
+  --gold: #f4b233;
+  --gold-hot: #ffd574;
+  --gold-dim: #906416;
+  --text: #fef5dd;
+  --text-dim: #c0ad83;
+  --surface: rgba(13, 13, 13, 0.9);
+  --surface-2: rgba(20, 20, 20, 0.86);
+  --accent-rgb: 244, 178, 51;
+  --accent-hot-rgb: 255, 213, 116;
   color-scheme: dark;
 }
 
@@ -10,11 +21,11 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: Outfit, sans-serif;
-  color: #f1f4f9;
+  color: var(--text);
   background:
-    radial-gradient(circle at 15% -25%, rgba(132, 151, 255, 0.24), transparent 40%),
-    radial-gradient(circle at 90% 115%, rgba(132, 151, 255, 0.2), transparent 42%),
-    #0b0f1a;
+    radial-gradient(circle at 15% -25%, rgba(var(--accent-rgb), 0.24), transparent 40%),
+    radial-gradient(circle at 90% 115%, rgba(var(--accent-rgb), 0.2), transparent 42%),
+    var(--bg);
 }
 
 .settings-shell {
@@ -29,7 +40,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #b0bcff;
+  color: var(--text-dim);
 }
 
 h1 {
@@ -38,13 +49,13 @@ h1 {
 
 header p {
   margin: 0;
-  color: #bbc4e8;
+  color: var(--text-dim);
 }
 
 .panel {
-  border: 1px solid rgba(164, 177, 255, 0.38);
+  border: 1px solid rgba(var(--accent-rgb), 0.38);
   border-radius: 14px;
-  background: rgba(14, 20, 35, 0.92);
+  background: var(--surface-2);
   padding: 0.9rem;
   display: grid;
   gap: 0.45rem;
@@ -57,7 +68,7 @@ header p {
 
 label {
   font-size: 0.85rem;
-  color: #c8d0ef;
+  color: var(--text-dim);
 }
 
 input,
@@ -68,19 +79,19 @@ button {
 
 input,
 select {
-  border: 1px solid rgba(177, 190, 255, 0.35);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
   border-radius: 10px;
-  background: rgba(9, 14, 26, 0.96);
-  color: #eff3ff;
+  background: var(--surface);
+  color: var(--text);
   padding: 0.45rem 0.55rem;
 }
 
 button {
   width: fit-content;
-  border: 1px solid rgba(177, 190, 255, 0.6);
+  border: 1px solid rgba(var(--accent-hot-rgb), 0.6);
   border-radius: 10px;
   background: transparent;
-  color: #d0d8ff;
+  color: var(--gold-hot);
   padding: 0.45rem 0.75rem;
   cursor: pointer;
 }
@@ -88,5 +99,5 @@ button {
 #statusText {
   min-height: 1.2rem;
   margin: 0;
-  color: #b9c6ff;
+  color: var(--text-dim);
 }

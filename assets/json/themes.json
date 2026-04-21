@@ -13,7 +13,9 @@
         "text-dim": "#c0ad83",
         "ring": "rgba(255, 199, 88, 0.3)",
         "surface": "rgba(13, 13, 13, 0.9)",
-        "surface-2": "rgba(20, 20, 20, 0.86)"
+        "surface-2": "rgba(20, 20, 20, 0.86)",
+        "accent-rgb": "244, 178, 51",
+        "accent-hot-rgb": "255, 213, 116"
       }
     },
     {
@@ -29,7 +31,9 @@
         "text-dim": "#9dc3d1",
         "ring": "rgba(100, 214, 255, 0.34)",
         "surface": "rgba(9, 25, 35, 0.9)",
-        "surface-2": "rgba(14, 35, 48, 0.86)"
+        "surface-2": "rgba(14, 35, 48, 0.86)",
+        "accent-rgb": "75, 209, 255",
+        "accent-hot-rgb": "159, 233, 255"
       }
     },
     {
@@ -45,7 +49,171 @@
         "text-dim": "#d9af93",
         "ring": "rgba(255, 149, 109, 0.32)",
         "surface": "rgba(35, 14, 10, 0.9)",
-        "surface-2": "rgba(49, 20, 15, 0.86)"
+        "surface-2": "rgba(49, 20, 15, 0.86)",
+        "accent-rgb": "255, 127, 80",
+        "accent-hot-rgb": "255, 196, 143"
+      }
+    },
+    {
+      "id": "mint-console",
+      "name": "Mint Console",
+      "variables": {
+        "bg": "#06120f",
+        "bg-soft": "#0d211b",
+        "gold": "#4ce0b3",
+        "gold-hot": "#a4ffe1",
+        "gold-dim": "#2c8f72",
+        "text": "#e9fff8",
+        "text-dim": "#9ed0c1",
+        "ring": "rgba(121, 255, 212, 0.3)",
+        "surface": "rgba(12, 26, 21, 0.9)",
+        "surface-2": "rgba(18, 33, 28, 0.86)",
+        "accent-rgb": "76, 224, 179",
+        "accent-hot-rgb": "164, 255, 225"
+      }
+    },
+    {
+      "id": "ruby-night",
+      "name": "Ruby Night",
+      "variables": {
+        "bg": "#140609",
+        "bg-soft": "#240d12",
+        "gold": "#ff5a73",
+        "gold-hot": "#ffb5c1",
+        "gold-dim": "#a53649",
+        "text": "#ffe8ec",
+        "text-dim": "#d7a0ab",
+        "ring": "rgba(255, 119, 140, 0.3)",
+        "surface": "rgba(30, 11, 15, 0.9)",
+        "surface-2": "rgba(40, 14, 19, 0.86)",
+        "accent-rgb": "255, 90, 115",
+        "accent-hot-rgb": "255, 181, 193"
+      }
+    },
+    {
+      "id": "violet-circuit",
+      "name": "Violet Circuit",
+      "variables": {
+        "bg": "#100918",
+        "bg-soft": "#1d1130",
+        "gold": "#b285ff",
+        "gold-hot": "#d9bcff",
+        "gold-dim": "#6e4ca1",
+        "text": "#f4ecff",
+        "text-dim": "#bfa7dd",
+        "ring": "rgba(187, 145, 255, 0.3)",
+        "surface": "rgba(26, 17, 40, 0.9)",
+        "surface-2": "rgba(35, 23, 52, 0.86)",
+        "accent-rgb": "178, 133, 255",
+        "accent-hot-rgb": "217, 188, 255"
+      }
+    },
+    {
+      "id": "sunset-drive",
+      "name": "Sunset Drive",
+      "variables": {
+        "bg": "#1a0e05",
+        "bg-soft": "#2b170a",
+        "gold": "#ff9f43",
+        "gold-hot": "#ffd18c",
+        "gold-dim": "#a1662a",
+        "text": "#fff2df",
+        "text-dim": "#d5b189",
+        "ring": "rgba(255, 180, 97, 0.3)",
+        "surface": "rgba(35, 20, 10, 0.9)",
+        "surface-2": "rgba(49, 28, 14, 0.86)",
+        "accent-rgb": "255, 159, 67",
+        "accent-hot-rgb": "255, 209, 140"
+      }
+    },
+    {
+      "id": "ice-core",
+      "name": "Ice Core",
+      "variables": {
+        "bg": "#07131a",
+        "bg-soft": "#10222b",
+        "gold": "#66d9ff",
+        "gold-hot": "#b8eeff",
+        "gold-dim": "#3f87a0",
+        "text": "#ecfbff",
+        "text-dim": "#a8c7d1",
+        "ring": "rgba(127, 225, 255, 0.3)",
+        "surface": "rgba(14, 28, 35, 0.9)",
+        "surface-2": "rgba(20, 38, 48, 0.86)",
+        "accent-rgb": "102, 217, 255",
+        "accent-hot-rgb": "184, 238, 255"
+      }
+    },
+    {
+      "id": "forest-code",
+      "name": "Forest Code",
+      "variables": {
+        "bg": "#09130a",
+        "bg-soft": "#132416",
+        "gold": "#78d45d",
+        "gold-hot": "#b8f2a7",
+        "gold-dim": "#4f8c3d",
+        "text": "#eefce9",
+        "text-dim": "#a8c79e",
+        "ring": "rgba(141, 228, 118, 0.3)",
+        "surface": "rgba(16, 31, 18, 0.9)",
+        "surface-2": "rgba(23, 43, 25, 0.86)",
+        "accent-rgb": "120, 212, 93",
+        "accent-hot-rgb": "184, 242, 167"
+      }
+    },
+    {
+      "id": "steel-arc",
+      "name": "Steel Arc",
+      "variables": {
+        "bg": "#0a0f13",
+        "bg-soft": "#151e26",
+        "gold": "#8fa5b8",
+        "gold-hot": "#ccd8e2",
+        "gold-dim": "#5d6f7f",
+        "text": "#f2f6f9",
+        "text-dim": "#adbbc8",
+        "ring": "rgba(168, 186, 201, 0.3)",
+        "surface": "rgba(19, 28, 35, 0.9)",
+        "surface-2": "rgba(26, 37, 46, 0.86)",
+        "accent-rgb": "143, 165, 184",
+        "accent-hot-rgb": "204, 216, 226"
+      }
+    },
+    {
+      "id": "rose-gold",
+      "name": "Rose Gold",
+      "variables": {
+        "bg": "#160b10",
+        "bg-soft": "#26131b",
+        "gold": "#f2a0b8",
+        "gold-hot": "#ffd5e4",
+        "gold-dim": "#9f6678",
+        "text": "#fff0f6",
+        "text-dim": "#d9b0c0",
+        "ring": "rgba(246, 176, 203, 0.3)",
+        "surface": "rgba(34, 16, 24, 0.9)",
+        "surface-2": "rgba(47, 22, 33, 0.86)",
+        "accent-rgb": "242, 160, 184",
+        "accent-hot-rgb": "255, 213, 228"
+      }
+    },
+    {
+      "id": "neon-lime",
+      "name": "Neon Lime",
+      "variables": {
+        "bg": "#101606",
+        "bg-soft": "#1b270d",
+        "gold": "#b7ff48",
+        "gold-hot": "#dcff9d",
+        "gold-dim": "#739f31",
+        "text": "#f7ffe9",
+        "text-dim": "#c0d998",
+        "ring": "rgba(197, 255, 105, 0.3)",
+        "surface": "rgba(25, 35, 12, 0.9)",
+        "surface-2": "rgba(33, 47, 17, 0.86)",
+        "accent-rgb": "183, 255, 72",
+        "accent-hot-rgb": "220, 255, 157"
       }
     }
   ]

@@ -1,4 +1,15 @@
 :root {
+  --bg: #050505;
+  --bg-soft: #0d0d0d;
+  --gold: #f4b233;
+  --gold-hot: #ffd574;
+  --gold-dim: #906416;
+  --text: #fef5dd;
+  --text-dim: #c0ad83;
+  --surface: rgba(13, 13, 13, 0.9);
+  --surface-2: rgba(20, 20, 20, 0.86);
+  --accent-rgb: 244, 178, 51;
+  --accent-hot-rgb: 255, 213, 116;
   color-scheme: dark;
 }
 
@@ -10,11 +21,11 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: Outfit, sans-serif;
-  color: #eff8ff;
+  color: var(--text);
   background:
-    radial-gradient(circle at 10% -30%, rgba(76, 188, 255, 0.24), transparent 40%),
-    radial-gradient(circle at 85% 120%, rgba(76, 188, 255, 0.2), transparent 40%),
-    #051019;
+    radial-gradient(circle at 10% -30%, rgba(var(--accent-rgb), 0.24), transparent 40%),
+    radial-gradient(circle at 85% 120%, rgba(var(--accent-rgb), 0.2), transparent 40%),
+    var(--bg);
 }
 
 .ai-shell {
@@ -29,7 +40,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #9fd4ff;
+  color: var(--text-dim);
 }
 
 h1 {
@@ -38,7 +49,7 @@ h1 {
 
 header p {
   margin: 0;
-  color: #b7d8eb;
+  color: var(--text-dim);
 }
 
 .link-row {
@@ -49,10 +60,10 @@ header p {
 
 .link-row a {
   text-decoration: none;
-  border: 1px solid rgba(123, 214, 255, 0.35);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
   border-radius: 12px;
-  background: rgba(9, 22, 33, 0.92);
-  color: #9ee6ff;
+  background: var(--surface);
+  color: var(--gold-hot);
   text-align: center;
   padding: 0.6rem;
   font-weight: 600;
@@ -61,9 +72,9 @@ header p {
 .prompt-lab {
   display: grid;
   gap: 0.45rem;
-  border: 1px solid rgba(123, 214, 255, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   border-radius: 14px;
-  background: rgba(9, 22, 33, 0.9);
+  background: var(--surface-2);
   padding: 0.85rem;
 }
 
@@ -76,9 +87,9 @@ textarea {
   width: 100%;
   min-height: 110px;
   border-radius: 10px;
-  border: 1px solid rgba(123, 214, 255, 0.28);
-  background: rgba(7, 17, 26, 0.98);
-  color: #eff8ff;
+  border: 1px solid rgba(var(--accent-rgb), 0.28);
+  background: var(--surface);
+  color: var(--text);
   padding: 0.55rem;
   resize: vertical;
 }
@@ -88,10 +99,10 @@ textarea {
 }
 
 button {
-  border: 1px solid rgba(123, 214, 255, 0.5);
+  border: 1px solid rgba(var(--accent-hot-rgb), 0.5);
   border-radius: 10px;
   background: transparent;
-  color: #9ee6ff;
+  color: var(--gold-hot);
   padding: 0.45rem 0.7rem;
   cursor: pointer;
   width: fit-content;

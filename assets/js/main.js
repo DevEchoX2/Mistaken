@@ -247,7 +247,7 @@ function sendSettingsStateToFrame(targetWindow = webFrame?.contentWindow) {
     source: 'mistaken-parent',
     type: 'state',
     settings: appSettings,
-    themes: availableThemes.map((theme) => ({ id: theme.id, name: theme.name })),
+    themes: availableThemes,
     searchEngines: Object.entries(SEARCH_ENGINES).map(([id, value]) => ({
       id,
       name: value.name

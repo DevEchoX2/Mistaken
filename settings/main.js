@@ -22,6 +22,18 @@ function setStatus(message) {
   statusText.textContent = message;
 }
 
+function applyThemeVariables(theme) {
+  if (!theme || !theme.variables) {
+    return;
+  }
+
+  const rootStyle = document.documentElement.style;
+  Object.entries(theme.variables).forEach(([key, value]) => {
+    const cssVar = key.startsWith('--') ? key : `--${key}`;
+    rootStyle.setProperty(cssVar, value);
+  });
+}
+
 function renderThemeOptions(themes, selectedTheme) {
   themeSelect.innerHTML = '';
   themes.forEach((theme) => {
@@ -49,6 +61,10 @@ function hydrateForm() {
   renderSearchEngineOptions(currentState.searchEngines, currentState.settings.searchEngine);
   cloakTitleInput.value = currentState.settings.cloakTitle || '';
   cloakFaviconInput.value = currentState.settings.cloakFavicon || '';
+
+  const selectedTheme = currentState.themes.find((theme) => theme.id === currentState.settings.theme)
+    || currentState.themes[0];
+  applyThemeVariables(selectedTheme);
 }
 
 window.addEventListener('message', (event) => {
