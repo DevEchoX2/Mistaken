@@ -45,7 +45,8 @@ function syncDockState() {
   if (!dockToggle) {
     return;
   }
-  dockToggle.setAttribute('aria-expanded', 'true');
+  const open = body.classList.contains('sections-open');
+  dockToggle.setAttribute('aria-expanded', String(open));
 }
 
 function syncPanelState() {
@@ -142,7 +143,9 @@ function loadInsideFrame(targetUrl, options = {}) {
     return;
   }
 
-  const { withLoader = true } = options;
+  const { withLoader = true, fullScreen = false } = options;
+
+  body.classList.toggle('frame-fullscreen', fullScreen);
 
   body.classList.remove('sections-open');
   syncPanelState();
@@ -170,7 +173,7 @@ async function openSearchTarget(destinationUrl) {
   lastRequestedUrl = destinationUrl;
   const useProxyRoute = await hasActiveServiceWorker();
   const targetUrl = useProxyRoute ? buildProxiedUrl(destinationUrl) : destinationUrl;
-  loadInsideFrame(targetUrl, { withLoader: true });
+  loadInsideFrame(targetUrl, { withLoader: true, fullScreen: false });
 }
 
 async function runSearch() {
@@ -293,16 +296,16 @@ function launchInlineCloakFallback() {
 
 if (dockToggle) {
   dockToggle.addEventListener('click', () => {
-    if (searchInput) {
-      searchInput.focus();
-      searchInput.select();
-    }
+    body.classList.toggle('sections-open');
+    syncDockState();
+    syncPanelState();
   });
 }
 
 if (sectionsToggle) {
   sectionsToggle.addEventListener('click', () => {
     body.classList.toggle('sections-open');
+    syncDockState();
     syncPanelState();
   });
 }
@@ -313,7 +316,7 @@ sectionTiles.forEach((tile) => {
     if (!target) {
       return;
     }
-    loadInsideFrame(target, { withLoader: false });
+    loadInsideFrame(target, { withLoader: false, fullScreen: true });
   });
 });
 
@@ -347,6 +350,7 @@ if (searchInput) {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     body.classList.remove('sections-open');
+    syncDockState();
     syncPanelState();
   }
 });
@@ -409,6 +413,7 @@ document.addEventListener('click', (event) => {
 
   if (!clickedInsidePanel && !clickedToggle) {
     body.classList.remove('sections-open');
+    syncDockState();
     syncPanelState();
   }
 });
