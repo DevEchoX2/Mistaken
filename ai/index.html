@@ -7,31 +7,48 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="ai-shell">
-    <header>
-      <p class="eyebrow">Section</p>
-      <h1>AI</h1>
-      <p>Quick links and reusable prompt templates.</p>
-    </header>
+  <main class="chat-app" aria-label="AI chat app">
+    <aside class="chat-sidebar" aria-label="Conversations">
+      <div class="sidebar-head">
+        <h1>Mistaken AI</h1>
+        <button id="newChatBtn" type="button">+ New chat</button>
+      </div>
+      <div class="chat-list" id="chatList"></div>
+      <div class="sidebar-foot">Your API key stays in local storage.</div>
+    </aside>
 
-    <section class="link-row" aria-label="AI Links">
-      <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
-      <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
-      <a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a>
-      <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
-    </section>
+    <section class="chat-main" aria-label="Chat panel">
+      <header class="chat-topbar">
+        <div>
+          <p class="eyebrow">Custom Assistant</p>
+          <strong id="chatTitle">New chat</strong>
+        </div>
+        <button id="toggleSettings" type="button">Settings</button>
+      </header>
 
-    <section class="prompt-lab" aria-label="Prompt Lab">
-      <label for="taskInput">Task</label>
-      <textarea id="taskInput" placeholder="Describe what you need..."></textarea>
+      <section class="settings-panel hidden" id="settingsPanel" aria-label="AI connection settings">
+        <label for="apiEndpoint">API Endpoint</label>
+        <input id="apiEndpoint" type="url" placeholder="https://api.openai.com/v1/chat/completions">
 
-      <label for="constraintsInput">Constraints</label>
-      <textarea id="constraintsInput" placeholder="Add constraints, tech stack, style..."></textarea>
+        <label for="apiModel">Model</label>
+        <input id="apiModel" type="text" placeholder="gpt-4o-mini">
 
-      <button id="buildPrompt" type="button">Build Prompt</button>
-      <label for="resultInput">Generated Prompt</label>
-      <textarea id="resultInput" readonly></textarea>
-      <button id="copyPrompt" type="button">Copy</button>
+        <label for="apiKey">API Key</label>
+        <input id="apiKey" type="password" placeholder="sk-...">
+
+        <label for="systemPrompt">System Prompt (optional)</label>
+        <textarea id="systemPrompt" rows="3" placeholder="You are a helpful assistant."></textarea>
+
+        <button id="saveConfig" type="button">Save Settings</button>
+        <p id="configStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="chat-thread" id="chatThread" aria-label="Conversation messages"></section>
+
+      <form class="chat-compose" id="composeForm">
+        <textarea id="chatInput" rows="2" placeholder="Message Mistaken AI..."></textarea>
+        <button id="sendBtn" type="submit">Send</button>
+      </form>
     </section>
   </main>
 
