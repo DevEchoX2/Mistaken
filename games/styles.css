@@ -1,12 +1,15 @@
 :root {
   --bg: #050505;
+  --bg-soft: #0d0d0d;
   --gold: #f4b233;
   --gold-hot: #ffd574;
+  --gold-dim: #906416;
   --text: #fef5dd;
   --text-dim: #c0ad83;
   --surface: rgba(13, 13, 13, 0.9);
   --surface-2: rgba(20, 20, 20, 0.86);
   --accent-rgb: 244, 178, 51;
+  --accent-hot-rgb: 255, 213, 116;
   color-scheme: dark;
 }
 
@@ -16,24 +19,26 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   font-family: Outfit, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 10% -30%, rgba(var(--accent-rgb), 0.2), transparent 40%),
-    radial-gradient(circle at 90% 130%, rgba(var(--accent-rgb), 0.2), transparent 38%),
+    radial-gradient(circle at 10% -30%, rgba(var(--accent-rgb), 0.26), transparent 40%),
+    radial-gradient(circle at 92% 122%, rgba(var(--accent-hot-rgb), 0.18), transparent 38%),
     var(--bg);
 }
 
 .games-shell {
-  width: min(1100px, 96vw);
-  margin: 1rem auto;
+  width: min(1180px, 96vw);
+  margin: 1.1rem auto;
   display: grid;
-  gap: 1rem;
+  gap: 1.05rem;
 }
 
 .games-header h1 {
-  margin: 0.2rem 0 0.4rem;
+  margin: 0.2rem 0 0.35rem;
+  font-family: Sora, sans-serif;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
 }
 
 .eyebrow {
@@ -49,15 +54,74 @@ body {
   color: var(--text-dim);
 }
 
-.games-empty {
-  border: 1px solid rgba(var(--accent-rgb), 0.3);
-  background: var(--surface);
-  border-radius: 14px;
-  padding: 1rem;
+.game-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
-.games-empty p {
+.filter-chip {
+  border: 1px solid rgba(var(--accent-rgb), 0.34);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-dim);
+  padding: 0.36rem 0.78rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.filter-chip.active {
+  border-color: rgba(var(--accent-hot-rgb), 0.5);
+  color: var(--gold-hot);
+  background: rgba(var(--accent-rgb), 0.16);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.game-card {
+  border: 1px solid rgba(var(--accent-rgb), 0.26);
+  border-radius: 16px;
+  background: linear-gradient(170deg, rgba(var(--accent-rgb), 0.12), rgba(0, 0, 0, 0) 36%), var(--surface-2);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.game-card h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--gold-hot);
+}
+
+.game-card p {
   margin: 0;
   color: var(--text-dim);
-  font-size: 0.95rem;
+  min-height: 2.6rem;
+  font-size: 0.9rem;
+}
+
+.game-card button {
+  margin-top: 0.15rem;
+  border: 1px solid rgba(var(--accent-hot-rgb), 0.45);
+  border-radius: 10px;
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--text);
+  font: inherit;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .games-shell {
+    margin: 0.8rem auto;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
 }

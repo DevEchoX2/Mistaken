@@ -297,7 +297,7 @@ saveConfig.addEventListener('click', () => {
 composeForm.addEventListener('submit', handleSend);
 
 window.parent.postMessage({
-  source: 'mistaken-settings',
+  source: 'mistaken-ai',
   type: 'request-state'
 }, window.location.origin);
 

@@ -10,20 +10,20 @@
   <main class="chat-app" aria-label="AI chat app">
     <aside class="chat-sidebar" aria-label="Conversations">
       <div class="sidebar-head">
+        <button id="newChatBtn" type="button" class="new-chat-btn">+ New chat</button>
         <h1>Mistaken AI</h1>
-        <button id="newChatBtn" type="button">+ New chat</button>
       </div>
       <div class="chat-list" id="chatList"></div>
-      <div class="sidebar-foot">Your API key stays in local storage.</div>
+      <div class="sidebar-foot">API key is saved locally in this browser profile.</div>
     </aside>
 
     <section class="chat-main" aria-label="Chat panel">
       <header class="chat-topbar">
         <div>
-          <p class="eyebrow">Custom Assistant</p>
+          <p class="eyebrow">Mistaken Assistant</p>
           <strong id="chatTitle">New chat</strong>
         </div>
-        <button id="toggleSettings" type="button">Settings</button>
+        <button id="toggleSettings" type="button" class="ghost-btn">Settings</button>
       </header>
 
       <section class="settings-panel hidden" id="settingsPanel" aria-label="AI connection settings">
@@ -39,15 +39,15 @@
         <label for="systemPrompt">System Prompt (optional)</label>
         <textarea id="systemPrompt" rows="3" placeholder="You are a helpful assistant."></textarea>
 
-        <button id="saveConfig" type="button">Save Settings</button>
+        <button id="saveConfig" type="button" class="save-btn">Save Settings</button>
         <p id="configStatus" role="status" aria-live="polite"></p>
       </section>
 
       <section class="chat-thread" id="chatThread" aria-label="Conversation messages"></section>
 
       <form class="chat-compose" id="composeForm">
-        <textarea id="chatInput" rows="2" placeholder="Message Mistaken AI..."></textarea>
-        <button id="sendBtn" type="submit">Send</button>
+        <textarea id="chatInput" rows="2" placeholder="Message Mistaken AI"></textarea>
+        <button id="sendBtn" type="submit" class="send-btn">Send</button>
       </form>
     </section>
   </main>

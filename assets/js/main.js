@@ -338,7 +338,9 @@ sectionTiles.forEach((tile) => {
     if (!target) {
       return;
     }
-    loadInsideFrame(target, { withLoader: false, fullScreen: true });
+    const delimiter = target.includes('?') ? '&' : '?';
+    const targetUrl = `${target}${delimiter}ts=${Date.now()}`;
+    loadInsideFrame(targetUrl, { withLoader: false, fullScreen: true });
   });
 });
 
