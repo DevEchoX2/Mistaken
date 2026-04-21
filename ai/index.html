@@ -7,49 +7,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="chat-app" aria-label="AI chat app">
-    <aside class="chat-sidebar" aria-label="Conversations">
-      <div class="sidebar-head">
-        <button id="newChatBtn" type="button" class="new-chat-btn">+ New chat</button>
-        <h1>Mistaken AI</h1>
-      </div>
-      <div class="chat-list" id="chatList"></div>
-      <div class="sidebar-foot">API key is saved locally in this browser profile.</div>
-    </aside>
-
-    <section class="chat-main" aria-label="Chat panel">
-      <header class="chat-topbar">
-        <div>
-          <p class="eyebrow">Mistaken Assistant</p>
-          <strong id="chatTitle">New chat</strong>
-        </div>
-        <button id="toggleSettings" type="button" class="ghost-btn">Settings</button>
-      </header>
-
-      <section class="settings-panel hidden" id="settingsPanel" aria-label="AI connection settings">
-        <label for="apiEndpoint">API Endpoint</label>
-        <input id="apiEndpoint" type="url" placeholder="https://api.openai.com/v1/chat/completions">
-
-        <label for="apiModel">Model</label>
-        <input id="apiModel" type="text" placeholder="gpt-4o-mini">
-
-        <label for="apiKey">API Key</label>
-        <input id="apiKey" type="password" placeholder="sk-...">
-
-        <label for="systemPrompt">System Prompt (optional)</label>
-        <textarea id="systemPrompt" rows="3" placeholder="You are a helpful assistant."></textarea>
-
-        <button id="saveConfig" type="button" class="save-btn">Save Settings</button>
-        <p id="configStatus" role="status" aria-live="polite"></p>
-      </section>
-
-      <section class="chat-thread" id="chatThread" aria-label="Conversation messages"></section>
-
-      <form class="chat-compose" id="composeForm">
-        <textarea id="chatInput" rows="2" placeholder="Message Mistaken AI"></textarea>
-        <button id="sendBtn" type="submit" class="send-btn">Send</button>
-      </form>
-    </section>
+  <main class="coming-shell" aria-label="AI coming soon">
+    <p class="eyebrow">AI</p>
+    <h1>Coming Very Soon</h1>
+    <p>We are polishing the new AI experience and API workflow.</p>
+    <span class="pulse-dot" aria-hidden="true"></span>
   </main>
 
   <script src="../assets/js/section-theme-sync.js"></script>
