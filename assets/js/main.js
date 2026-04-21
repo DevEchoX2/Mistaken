@@ -45,8 +45,8 @@ function syncDockState() {
   if (!dockToggle) {
     return;
   }
-  const open = body.classList.contains('sections-open');
-  dockToggle.setAttribute('aria-expanded', String(open));
+  const visible = !body.classList.contains('dock-hidden');
+  dockToggle.setAttribute('aria-expanded', String(visible));
 }
 
 function syncPanelState() {
@@ -148,6 +148,7 @@ function loadInsideFrame(targetUrl, options = {}) {
   body.classList.toggle('frame-fullscreen', fullScreen);
 
   body.classList.remove('sections-open');
+  syncDockState();
   syncPanelState();
   if (withLoader) {
     body.classList.add('search-transition');
@@ -173,7 +174,7 @@ async function openSearchTarget(destinationUrl) {
   lastRequestedUrl = destinationUrl;
   const useProxyRoute = await hasActiveServiceWorker();
   const targetUrl = useProxyRoute ? buildProxiedUrl(destinationUrl) : destinationUrl;
-  loadInsideFrame(targetUrl, { withLoader: true, fullScreen: false });
+  loadInsideFrame(targetUrl, { withLoader: true, fullScreen: true });
 }
 
 async function runSearch() {
@@ -296,7 +297,10 @@ function launchInlineCloakFallback() {
 
 if (dockToggle) {
   dockToggle.addEventListener('click', () => {
-    body.classList.toggle('sections-open');
+    body.classList.toggle('dock-hidden');
+    if (body.classList.contains('dock-hidden')) {
+      body.classList.remove('sections-open');
+    }
     syncDockState();
     syncPanelState();
   });
@@ -304,8 +308,11 @@ if (dockToggle) {
 
 if (sectionsToggle) {
   sectionsToggle.addEventListener('click', () => {
+    if (body.classList.contains('dock-hidden')) {
+      body.classList.remove('dock-hidden');
+      syncDockState();
+    }
     body.classList.toggle('sections-open');
-    syncDockState();
     syncPanelState();
   });
 }

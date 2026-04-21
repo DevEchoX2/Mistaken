@@ -175,8 +175,9 @@ h4 {
   transition: bottom 260ms ease, transform 260ms ease;
 }
 
-.sections-open .dock-toggle {
+.dock-hidden .dock-toggle {
   transform: translateX(-50%) rotate(180deg);
+  bottom: 1rem;
 }
 
 .search-dock {
@@ -186,6 +187,10 @@ h4 {
   transform: translateX(-50%);
   width: min(72vw, 620px);
   transition: transform 320ms ease;
+}
+
+.dock-hidden .search-dock {
+  transform: translateX(-50%) translateY(130%);
 }
 
 .frame-fullscreen .search-dock,
