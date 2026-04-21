@@ -29,6 +29,10 @@
     <p class="hero-subtitle">Sharp, fast, and built to expand.</p>
   </main>
 
+  <section class="web-frame-shell" id="webFrameShell" aria-label="Website preview" aria-hidden="true">
+    <iframe id="webFrame" title="Website frame" loading="eager" referrerpolicy="no-referrer"></iframe>
+  </section>
+
   <button class="dock-toggle" id="dockToggle" aria-label="Toggle search dock" aria-expanded="true">
     <i data-lucide="chevron-up"></i>
   </button>
@@ -45,28 +49,26 @@
       <button class="dock-icon" id="searchSubmit" aria-label="Run search">
         <i data-lucide="arrow-up-right"></i>
       </button>
+      <button class="dock-icon" id="openDirect" aria-label="Open search in new tab">
+        <i data-lucide="external-link"></i>
+      </button>
     </div>
   </section>
 
   <section class="sections-panel" id="sectionsPanel" aria-label="Sections" aria-hidden="true">
-    <div class="panel-tabs" role="tablist" aria-label="Section tabs">
-      <button class="panel-tab active" data-panel="games" role="tab" aria-selected="true">Games</button>
-      <button class="panel-tab" data-panel="apps" role="tab" aria-selected="false">Apps</button>
-      <button class="panel-tab" data-panel="settings" role="tab" aria-selected="false">Settings</button>
-    </div>
-    <div class="panel-body">
-      <div class="panel-view active" data-view="games">
+    <div class="sections-grid" aria-label="Section launcher grid">
+      <button class="section-tile" data-target="games/index.html" type="button">
         <h4>Games</h4>
-        <p>Section shell ready.</p>
-      </div>
-      <div class="panel-view" data-view="apps">
-        <h4>Apps</h4>
-        <p>Section shell ready.</p>
-      </div>
-      <div class="panel-view" data-view="settings">
+        <p>Open the game launcher hub.</p>
+      </button>
+      <button class="section-tile" data-target="ai/index.html" type="button">
+        <h4>AI</h4>
+        <p>Open AI links and prompt lab.</p>
+      </button>
+      <button class="section-tile" data-target="settings/index.html" type="button">
         <h4>Settings</h4>
-        <p>Section shell ready.</p>
-      </div>
+        <p>Theme, search engine, and cloaking.</p>
+      </button>
     </div>
   </section>
 

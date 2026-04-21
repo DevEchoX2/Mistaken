@@ -1,0 +1,52 @@
+{
+  "themes": [
+    {
+      "id": "gold-noir",
+      "name": "Gold Noir",
+      "variables": {
+        "bg": "#050505",
+        "bg-soft": "#0d0d0d",
+        "gold": "#f4b233",
+        "gold-hot": "#ffd574",
+        "gold-dim": "#906416",
+        "text": "#fef5dd",
+        "text-dim": "#c0ad83",
+        "ring": "rgba(255, 199, 88, 0.3)",
+        "surface": "rgba(13, 13, 13, 0.9)",
+        "surface-2": "rgba(20, 20, 20, 0.86)"
+      }
+    },
+    {
+      "id": "ocean-signal",
+      "name": "Ocean Signal",
+      "variables": {
+        "bg": "#03121a",
+        "bg-soft": "#0b1f2b",
+        "gold": "#4bd1ff",
+        "gold-hot": "#9fe9ff",
+        "gold-dim": "#2a7f98",
+        "text": "#e8f8ff",
+        "text-dim": "#9dc3d1",
+        "ring": "rgba(100, 214, 255, 0.34)",
+        "surface": "rgba(9, 25, 35, 0.9)",
+        "surface-2": "rgba(14, 35, 48, 0.86)"
+      }
+    },
+    {
+      "id": "ember-grid",
+      "name": "Ember Grid",
+      "variables": {
+        "bg": "#1a0b08",
+        "bg-soft": "#2b130e",
+        "gold": "#ff7f50",
+        "gold-hot": "#ffc48f",
+        "gold-dim": "#a04f32",
+        "text": "#fff1e3",
+        "text-dim": "#d9af93",
+        "ring": "rgba(255, 149, 109, 0.32)",
+        "surface": "rgba(35, 14, 10, 0.9)",
+        "surface-2": "rgba(49, 20, 15, 0.86)"
+      }
+    }
+  ]
+}

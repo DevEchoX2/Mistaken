@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mistaken AI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="ai-shell">
+    <header>
+      <p class="eyebrow">Section</p>
+      <h1>AI</h1>
+      <p>Quick links and reusable prompt templates.</p>
+    </header>
+
+    <section class="link-row" aria-label="AI Links">
+      <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
+      <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
+      <a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a>
+      <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+    </section>
+
+    <section class="prompt-lab" aria-label="Prompt Lab">
+      <label for="taskInput">Task</label>
+      <textarea id="taskInput" placeholder="Describe what you need..."></textarea>
+
+      <label for="constraintsInput">Constraints</label>
+      <textarea id="constraintsInput" placeholder="Add constraints, tech stack, style..."></textarea>
+
+      <button id="buildPrompt" type="button">Build Prompt</button>
+      <label for="resultInput">Generated Prompt</label>
+      <textarea id="resultInput" readonly></textarea>
+      <button id="copyPrompt" type="button">Copy</button>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
