@@ -3,6 +3,7 @@ const entryLoader = document.getElementById('entryLoader');
 const dockToggle = document.getElementById('dockToggle');
 const sectionsToggle = document.getElementById('sectionsToggle');
 const sectionsPanel = document.getElementById('sectionsPanel');
+const homeBtn = document.getElementById('homeBtn');
 const searchInput = document.getElementById('proxySearch');
 const searchSubmit = document.getElementById('searchSubmit');
 const openDirect = document.getElementById('openDirect');
@@ -295,6 +296,16 @@ function launchInlineCloakFallback() {
   return true;
 }
 
+function goHome() {
+  body.classList.remove('has-frame', 'frame-fullscreen', 'sections-open');
+  webFrameShell?.setAttribute('aria-hidden', 'true');
+  if (webFrame) {
+    webFrame.src = 'about:blank';
+  }
+  syncDockState();
+  syncPanelState();
+}
+
 if (dockToggle) {
   dockToggle.addEventListener('click', () => {
     body.classList.toggle('dock-hidden');
@@ -315,6 +326,10 @@ if (sectionsToggle) {
     body.classList.toggle('sections-open');
     syncPanelState();
   });
+}
+
+if (homeBtn) {
+  homeBtn.addEventListener('click', goHome);
 }
 
 sectionTiles.forEach((tile) => {
@@ -368,7 +383,7 @@ window.addEventListener('message', (event) => {
   }
 
   const payload = event.data;
-  if (!payload || payload.source !== 'mistaken-settings') {
+  if (!payload || !['mistaken-settings', 'mistaken-ai'].includes(payload.source)) {
     return;
   }
 

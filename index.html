@@ -39,6 +39,9 @@
 
   <section class="search-dock" id="searchDock" aria-label="Search controls">
     <div class="dock-inner">
+      <button class="dock-icon" id="homeBtn" aria-label="Go home">
+        <i data-lucide="house"></i>
+      </button>
       <button class="dock-icon" id="sectionsToggle" aria-label="Open sections" aria-expanded="false">
         <i data-lucide="layout-grid"></i>
       </button>
@@ -57,15 +60,15 @@
 
   <section class="sections-panel" id="sectionsPanel" aria-label="Sections" aria-hidden="true">
     <div class="sections-grid" aria-label="Section launcher grid">
-      <button class="section-tile" data-target="games/index.html" type="button">
+      <button class="section-tile" data-target="games/index.html?v=2" type="button">
         <h4>Games</h4>
         <p>Open the game launcher hub.</p>
       </button>
-      <button class="section-tile" data-target="ai/index.html" type="button">
+      <button class="section-tile" data-target="ai/index.html?v=2" type="button">
         <h4>AI</h4>
-        <p>Open AI links and prompt lab.</p>
+        <p>Open the AI chat interface.</p>
       </button>
-      <button class="section-tile" data-target="settings/index.html" type="button">
+      <button class="section-tile" data-target="settings/index.html?v=2" type="button">
         <h4>Settings</h4>
         <p>Theme, search engine, and cloaking.</p>
       </button>
